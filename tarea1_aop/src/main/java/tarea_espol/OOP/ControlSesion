@@ -1,18 +1,24 @@
 package tarea_espol.aop;
 
-public class ControlSesion {
-    private String usuarioLogueado;
+/**
+ * POJO puro que maneja el estado de la sesión del usuario.
+ * No contiene lógica de Singleton ni métodos estáticos.
+ */
+public class SesionUsuario {
+    
+    public String usuarioActivo;
 
-    // Constructor público para demostrar la intercepción con AOP
-    public ControlSesion() {
-        System.out.println("Inicializando una nueva sesión...");
+    // Constructor público: La clase permite ser instanciada libremente.
+    // El aspecto se encargará de interceptar esta llamada.
+    public SesionUsuario() {
+        System.out.println("Inicializando nueva instancia de SesionUsuario...");
     }
 
-    public void setUsuarioLogueado(String usuario) {
-        this.usuarioLogueado = usuario;
+    public String getUsuarioActivo() {
+        return usuarioActivo;
     }
 
-    public String getUsuarioLogueado() {
-        return this.usuarioLogueado;
+    public void setUsuarioActivo(String usuarioActivo) {
+        this.usuarioActivo = usuarioActivo;
     }
 }
