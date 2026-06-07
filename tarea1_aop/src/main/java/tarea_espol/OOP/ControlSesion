@@ -1,24 +1,25 @@
 package tarea_espol.aop;
 
 /**
- * POJO puro que maneja el estado de la sesión del usuario.
- * No contiene lógica de Singleton ni métodos estáticos.
+ * POJO normal que representa el control de la sesión.
+ * No contiene lógica estática ni referencias a sí mismo.
  */
-public class SesionUsuario {
+public class ControlSesion {
     
-    public String usuarioActivo;
+    private String estadoSesion;
 
-    // Constructor público: La clase permite ser instanciada libremente.
-    // El aspecto se encargará de interceptar esta llamada.
-    public SesionUsuario() {
-        System.out.println("Inicializando nueva instancia de SesionUsuario...");
+    // Constructor público dejado a propósito para demostrar el poder de AOP.
+    // En OOP estándar esto permitiría múltiples instancias, pero AOP lo evitará.
+    public ControlSesion() {
+        System.out.println("Ejecutando constructor de ControlSesion...");
+        this.estadoSesion = "Sesión Activa";
     }
 
-    public String getUsuarioActivo() {
-        return usuarioActivo;
+    public String getEstadoSesion() {
+        return estadoSesion;
     }
 
-    public void setUsuarioActivo(String usuarioActivo) {
-        this.usuarioActivo = usuarioActivo;
+    public void setEstadoSesion(String estadoSesion) {
+        this.estadoSesion = estadoSesion;
     }
 }
